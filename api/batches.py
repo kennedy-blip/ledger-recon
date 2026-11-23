@@ -1,7 +1,7 @@
 """Batch import and demo reset endpoint."""
 from http.server import BaseHTTPRequestHandler
 import json
-from _db import db, replace, reset, editor_rows
+from api._db import db, replace, reset, editor_rows
 def send(h,code,data):
  b=json.dumps(data,allow_nan=False).encode(); h.send_response(code); h.send_header("Content-Type","application/json; charset=utf-8"); h.send_header("Cache-Control","no-store"); h.send_header("Content-Length",str(len(b))); h.end_headers(); h.wfile.write(b)
 class handler(BaseHTTPRequestHandler):
